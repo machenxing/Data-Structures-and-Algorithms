@@ -1,4 +1,7 @@
 package Date_Structures.Queue;
+
+import java.util.Arrays;
+
 /**
  * 基于数组实现的队列
  * @param <E>
@@ -62,6 +65,12 @@ public class Queue<E> {
     //队列长度
     public int getLength(){
         return rear-front;
+    }
+
+    //清空队列
+    public void clean(){
+        Arrays.fill(data,null);
+        rear=front=0;
     }
 
 }
