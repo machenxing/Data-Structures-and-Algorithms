@@ -55,7 +55,9 @@ public class Stack<E> {
         if(top==-1){
             throw new RuntimeException("Õ»Îª¿Õ£¡");
         }else{
-            return (E)data[top--];
+            E elem=(E)data[top];
+            data[top--]=null;
+            return elem;
         }
     }
 
