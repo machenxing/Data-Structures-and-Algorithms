@@ -15,7 +15,7 @@ public class MyLink {
         list.traverse(head);
         list.deleteNode(head,4);
         System.out.println("after delete(4):");
-/*        list.printListReversely(head);*/
+        list.printListReversely(head);
         list.traverse(head);
         list.insertNode(head,4,7);
         System.out.println("after insert(4,7):");

@@ -1,4 +1,4 @@
-package Date_Structures;
+package Date_Structures.List;
 
 public interface IList {
     void InitList(int initSize);
