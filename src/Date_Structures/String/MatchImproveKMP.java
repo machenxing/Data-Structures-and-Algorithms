@@ -46,6 +46,7 @@ public class MatchImproveKMP {
         return next;
 
     }
+
     public static void main(String[] args) {
         String s ="Star is good man";
         String t =" good";
