@@ -5,9 +5,9 @@ package Date_Structures.Queue;
  */
 public class LinkQueue<E> {
     //链式队列的节点
-    private class Node<E>{
+    private class Node{
         E e;
-        Node<E> next;
+        Node next;
         public Node(){
         }
         public Node(E e,Node next){
@@ -15,8 +15,8 @@ public class LinkQueue<E> {
             this.next=next;
         }
     }
-    private Node<E> front;//队列头，允许插入
-    private Node<E> rear;//队列尾，允许插入
+    private Node front;//队列头，允许插入
+    private Node rear;//队列尾，允许插入
     private int size;//队列当前长度
 
     //构造队列
@@ -33,7 +33,7 @@ public class LinkQueue<E> {
 
     //队列插入元素
     public boolean add(E e){
-        Node<E> elem=new Node(e,null);
+        Node elem=new Node(e,null);
         rear.next=elem;
         rear=elem;
         size++;
@@ -41,7 +41,7 @@ public class LinkQueue<E> {
     }
 
     //返回队首元素，但并不删除
-    public Node<E> peek(){
+    public Node peek(){
         if(isEmpty()){
             throw new RuntimeException("队列为空！");
         }else{
@@ -50,11 +50,11 @@ public class LinkQueue<E> {
     }
 
     //出队
-    public Node<E> pool(){
+    public Node pool(){
         if(isEmpty()){
             throw new RuntimeException("队列为空！");
         }else{
-            Node<E> elem=front;
+            Node elem=front;
             elem.next=null;
             front=front.next;
             size--;

@@ -16,7 +16,7 @@ public class Stack<E> {
         this(10);
     }
 
-    Stack(int initSize){
+    public Stack(int initSize){
         if(initSize>=0){
             this.maxSize=initSize;
             data = new Object[initSize];
@@ -42,20 +42,20 @@ public class Stack<E> {
     }
 
     //查看栈顶元素
-    public E peek(){
+    public Object peek(){
         if(top==-1){
             throw new RuntimeException("栈为空！");
         }else{
-            return (E)data[top];
+            return data[top];
         }
     }
 
     //元素出栈
-    public E pop(){
+    public Object pop(){
         if(top==-1){
             throw new RuntimeException("栈为空！");
         }else{
-            E elem=(E)data[top];
+            Object elem=data[top];
             data[top--]=null;
             return elem;
         }

@@ -46,20 +46,20 @@ public class LoopQueue<E> {
     }
 
     //返回队首元素，但并不删除
-    public E peek(){
+    public Object peek(){
         if(isEmpty()){
             throw new RuntimeException("队列为空！");
         }else{
-            return (E)data[front];
+            return data[front];
         }
     }
 
     //出队
-    public E poll(){
+    public Object poll(){
         if(isEmpty()){
             throw new RuntimeException("队列为空！");
         }else{
-            E elem=(E)data[front];
+            Object elem=data[front];
             data[front]=null;
             front=(front+1)%maxSize;//队首指针+1
             size--;

@@ -4,15 +4,15 @@ package Date_Structures.Stack;
  * @param <E>
  */
 public class LinkStack<E> {
-    private class Node<E>{
+    private class Node{
         E e;
-        Node<E> next;
+        Node next;
         public Node(E e,Node next){
             this.e=e;
             this.next=next;
         }
     }
-    private Node<E> top;
+    private Node top;
     private int size;
 
     public LinkStack(){
@@ -37,7 +37,7 @@ public class LinkStack<E> {
     }
 
     //查看栈顶元素但不删除
-    public Node<E> peek(){
+    public Node peek(){
         if(isEmpty()){
             throw new RuntimeException("栈为空！");
         }else{
@@ -46,11 +46,11 @@ public class LinkStack<E> {
     }
 
     //出栈
-    public Node<E> pop(){
+    public Node pop(){
         if (isEmpty()) {
             throw new RuntimeException("栈为空！");
         }else{
-            Node<E> elem=top;
+            Node elem=top;
             top =top.next;
             elem.next=null;
             size--;
