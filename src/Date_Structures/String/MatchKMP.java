@@ -1,5 +1,7 @@
 package Date_Structures.String;
-
+/**
+ * KMPƒ£ Ω∆•≈‰À„∑®
+ */
 public class MatchKMP {
     public int matchKMP(String s ,String t ,int post){
         if(s == null || t == null){

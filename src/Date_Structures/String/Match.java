@@ -1,5 +1,7 @@
 package Date_Structures.String;
-
+/**
+ * 朴素的模式匹配算法
+ */
 public class Match {
     public int match(String s , String t , int post){
         if(s == null || t == null){

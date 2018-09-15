@@ -1,5 +1,7 @@
 package Date_Structures.String;
-
+/**
+ * 改进的KMP模式匹配算法
+ */
 public class MatchImproveKMP {
     public int matchImproveKMP(String s ,String t ,int post){
         if(s == null || t == null){
