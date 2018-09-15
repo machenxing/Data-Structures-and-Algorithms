@@ -34,7 +34,7 @@ public class LoopQueue<E> {
     }
 
     //队列插入元素
-    public boolean add(E e){
+    public boolean offer(E e){
         if(size==maxSize){
             throw new RuntimeException("队列已满，无法插入新的元素！");
         }else{

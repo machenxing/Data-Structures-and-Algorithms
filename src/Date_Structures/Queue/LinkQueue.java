@@ -32,7 +32,7 @@ public class LinkQueue<E> {
     }
 
     //队列插入元素
-    public boolean add(E e){
+    public boolean offer(E e){
         Node elem=new Node(e,null);
         rear.next=elem;
         rear=elem;
