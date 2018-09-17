@@ -1,4 +1,7 @@
 package Date_Structures.Stack;
+
+import java.util.Arrays;
+
 /**
  * 基于数组实现的顺序栈
  * @param <E>
@@ -36,7 +39,7 @@ public class Stack<E> {
         if (top == maxSize-1){
             throw new RuntimeException("栈已满，元素无法入栈！");
         }else{
-            data[top++]=e;
+            data[++top]=e;
             return true;
         }
     }
@@ -74,6 +77,39 @@ public class Stack<E> {
         int result = top+1;
         top=i;
         return result;
+    }
+    //查看栈的大小
+    public int getSize(){
+        return top+1;
+    }
+
+    //清空栈
+    public void clear(){
+        Arrays.fill(data,null);
+        top=-1;
+    }
+
+    public static void main(String[] args) {
+        Stack<String> stack=new Stack<>();
+        System.out.println("stack.maxSize="+stack.maxSize);
+        System.out.println("stack.size="+stack.getSize());
+        System.out.println("stack is empty?"+stack.isEmpty());
+        stack.push("a");
+        stack.push("b");
+        stack.push("c");
+        stack.push("d");
+        stack.push("e");
+        System.out.println("stack.size="+stack.getSize());
+        System.out.println("stack is empty?"+stack.isEmpty());
+        System.out.println(stack.pop());
+        System.out.println(stack.peek());
+        System.out.println(stack.pop());
+        System.out.println("stack.size="+stack.getSize());
+        System.out.println("stack is empty?"+stack.isEmpty());
+        stack.clear();
+        System.out.println("---------------after clear---------------");
+        System.out.println("queue is empty?"+stack.isEmpty());
+        System.out.println("queue.size="+stack.getSize());
     }
 
 }

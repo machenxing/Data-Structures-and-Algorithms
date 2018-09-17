@@ -21,8 +21,9 @@ public class LinkQueue<E> {
 
     //构造队列
     public LinkQueue(){
-        front=null;
-        rear=null;
+        Node node=new Node(null,null);
+        front=node;
+        rear=node;
         size=0;
     }
 
@@ -41,30 +42,63 @@ public class LinkQueue<E> {
     }
 
     //返回队首元素，但并不删除
-    public Node peek(){
+    public E peek(){
         if(isEmpty()){
             throw new RuntimeException("队列为空！");
         }else{
-            return front;
+            return front.next.e;
         }
     }
 
     //出队
-    public Node pool(){
+    public E poll(){
         if(isEmpty()){
             throw new RuntimeException("队列为空！");
         }else{
-            Node elem=front;
+            Node elem=front.next;
+            front.next=elem.next;
             elem.next=null;
-            front=front.next;
             size--;
-            return elem;
+            return elem.e;
         }
     }
 
     //获取队列长度
-    public int getLength(){
+    public int getSize(){
         return size;
+    }
+
+    //清空队列
+    public void clear(){
+        for(Node node=front;node!=null;){
+            Node next=node.next;
+            node.e=null;
+            node.next=null;
+            node=next;
+        }
+        size=0;
+    }
+
+    public static void main(String[] args) {
+        LinkQueue<String> linkQueue=new LinkQueue<>();
+        System.out.println("queue is empty:"+linkQueue.isEmpty());
+        System.out.println("queue.size="+linkQueue.getSize());
+        linkQueue.offer("a");
+        linkQueue.offer("b");
+        linkQueue.offer("c");
+        linkQueue.offer("d");
+        linkQueue.offer("e");
+        System.out.println("queue is empty:"+linkQueue.isEmpty());
+        System.out.println("queue.size="+linkQueue.getSize());
+        System.out.println(linkQueue.poll());
+        System.out.println(linkQueue.peek());
+        System.out.println(linkQueue.poll());
+        System.out.println("queue is empty:"+linkQueue.isEmpty());
+        System.out.println("queue.size="+linkQueue.getSize());
+        linkQueue.clear();
+        System.out.println("---------------after clear---------------");
+        System.out.println("queue is empty:"+linkQueue.isEmpty());
+        System.out.println("queue.size="+linkQueue.getSize());
     }
 
 }

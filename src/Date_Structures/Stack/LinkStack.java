@@ -20,7 +20,7 @@ public class LinkStack<E> {
     }
 
     //当前栈大小
-    public int length(){
+    public int getSize(){
         return size;
     }
 
@@ -37,16 +37,16 @@ public class LinkStack<E> {
     }
 
     //查看栈顶元素但不删除
-    public Node peek(){
+    public E peek(){
         if(isEmpty()){
             throw new RuntimeException("栈为空！");
         }else{
-            return top;
+            return top.e;
         }
     }
 
     //出栈
-    public Node pop(){
+    public E pop(){
         if (isEmpty()) {
             throw new RuntimeException("栈为空！");
         }else{
@@ -54,7 +54,40 @@ public class LinkStack<E> {
             top =top.next;
             elem.next=null;
             size--;
-            return elem;
+            return elem.e;
         }
+    }
+
+    //清空栈
+    public void clear(){
+        for(Node node=top;node!=null;){
+            Node next=node.next;
+            node.e=null;
+            node.next=null;
+            node=next;
+        }
+        size=0;
+    }
+
+    public static void main(String[] args) {
+        LinkStack<String> linkStack=new LinkStack<>();
+        System.out.println("linkStack.size = "+linkStack.getSize());
+        System.out.println("stack is empty?"+linkStack.isEmpty());
+        linkStack.push("a");
+        linkStack.push("b");
+        linkStack.push("c");
+        linkStack.push("d");
+        linkStack.push("e");
+        System.out.println("stack.size="+linkStack.getSize());
+        System.out.println("stack is empty?"+linkStack.isEmpty());
+        System.out.println(linkStack.pop());
+        System.out.println(linkStack.peek());
+        System.out.println(linkStack.pop());
+        System.out.println("stack.size="+linkStack.getSize());
+        System.out.println("stack is empty?"+linkStack.isEmpty());
+        linkStack.clear();
+        System.out.println("------------after clear-------------");
+        System.out.println("stack.size="+linkStack.getSize());
+        System.out.println("stack is empty?"+linkStack.isEmpty());
     }
 }

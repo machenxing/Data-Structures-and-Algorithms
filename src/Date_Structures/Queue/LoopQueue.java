@@ -68,15 +68,37 @@ public class LoopQueue<E> {
     }
 
     //获取队列长度
-    public int getLength(){
+    public int getSize(){
         return size;
     }
 
     //清空队列
-    public void clean(){
+    public void clear(){
         Arrays.fill(data,null);
         size=0;
         rear=front=0;
+    }
+
+    public static void main(String[] args) {
+        LoopQueue<String> loopQueue=new LoopQueue<>();
+        System.out.println("queue is empty:"+loopQueue.isEmpty());
+        System.out.println("queue.size="+loopQueue.getSize());
+        loopQueue.offer("a");
+        loopQueue.offer("b");
+        loopQueue.offer("c");
+        loopQueue.offer("d");
+        loopQueue.offer("e");
+        System.out.println("queue is empty:"+loopQueue.isEmpty());
+        System.out.println("queue.size="+loopQueue.getSize());
+        System.out.println(loopQueue.poll());
+        System.out.println(loopQueue.peek());
+        System.out.println(loopQueue.poll());
+        System.out.println("queue is empty:"+loopQueue.isEmpty());
+        System.out.println("queue.size="+loopQueue.getSize());
+        loopQueue.clear();
+        System.out.println("---------------after clear---------------");
+        System.out.println("queue is empty:"+loopQueue.isEmpty());
+        System.out.println("queue.size="+loopQueue.getSize());
     }
 
 }

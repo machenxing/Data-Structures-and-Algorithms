@@ -33,7 +33,7 @@ public class Queue<E> {
     }
 
     //插入队列
-    public boolean add(E e){
+    public boolean offer(E e){
         if(rear==maxSize){
             throw new RuntimeException("队列已满，无法插入新的元素！");
         }else{
@@ -43,34 +43,56 @@ public class Queue<E> {
     }
 
     //返回队首元素，但不删除
-    public E peek(){
+    public Object peek(){
         if(isEmpty()){
             throw new RuntimeException("队列为空！");
         }else{
-            return (E) data[front];
+            return data[front];
         }
     }
 
     //出队
-    public E poll(){
+    public Object poll(){
         if (isEmpty()){
             throw new RuntimeException("队列为空！");
         }else{
-            E elem=(E) data[front];
+            Object elem= data[front];
             data[front++]=null;
             return elem;
         }
     }
 
     //队列长度
-    public int getLength(){
+    public int getSize(){
         return rear-front;
     }
 
     //清空队列
-    public void clean(){
+    public void clear(){
         Arrays.fill(data,null);
         rear=front=0;
+    }
+
+    public static void main(String[] args) {
+        Queue<String> queue=new Queue<>();
+        System.out.println("queue is empty:"+queue.isEmpty());
+        System.out.println("queue.size="+queue.getSize());
+        queue.offer("a");
+        queue.offer("b");
+        queue.offer("c");
+        queue.offer("d");
+        queue.offer("e");
+        System.out.println("queue is empty:"+queue.isEmpty());
+        System.out.println("queue.size="+queue.getSize());
+        System.out.println(queue.poll());
+        System.out.println(queue.peek());
+        System.out.println(queue.poll());
+        System.out.println("queue is empty:"+queue.isEmpty());
+        System.out.println("queue.size="+queue.getSize());
+        queue.clear();
+        System.out.println("---------------after clear---------------");
+        System.out.println("queue is empty:"+queue.isEmpty());
+        System.out.println("queue.size="+queue.getSize());
     }
 
 }
