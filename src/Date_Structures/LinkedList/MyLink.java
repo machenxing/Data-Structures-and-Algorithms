@@ -22,14 +22,14 @@ public class MyLink {
         list.traverse(head);
     }
 
-    static Node head=null;
+    private static Node head=null;
 
     public class Node{
         //数据域
-        public int data;
+        private int data;
 
         //指针域，指向下一个节点
-        public Node next=null;
+        private Node next=null;
 
         public Node() {
         }
@@ -136,7 +136,7 @@ public class MyLink {
      * 获取链表的长度
      * @param head 头指针
      */
-    public static int  linkListLength(Node head) {
+    public int linkListLength(Node head) {
 
         int length = 0;
 
@@ -302,7 +302,7 @@ public class MyLink {
      * 查询单链表的中间节点
      */
 
-    public static Node searchMid(Node head) {
+    public Node searchMid(Node head) {
 
         Node p1 = head;
         Node p2 = head;
