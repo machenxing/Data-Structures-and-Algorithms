@@ -59,7 +59,7 @@ public class MergingSort {
         if(array.length>1){
             int length=1;
             while(length<array.length){
-                for(int i=0;i<array.length-1;i+=2*length){
+                for(int i=0;i<array.length;i+=2*length){
                     if(i+2*length<array.length){
                         merge(array,i,i+length-1,i+2*length-1);
                     }else if(i+length<array.length){
