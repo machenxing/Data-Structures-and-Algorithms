@@ -5,7 +5,7 @@ import java.util.Arrays;
 /**
  * ц╟ещеепР
  */
-public class BubbleSort {
+public class BubbleSort extends Sort{
     /**
      * ц╟ещеепР
      */
@@ -17,9 +17,7 @@ public class BubbleSort {
         for(i=0;i<array.length-1;i++){
             for(j=array.length-1;j>i;j--){
                 if(array[j]<array[j-1]){
-                    int data=array[j];
-                    array[j]=array[j-1];
-                    array[j-1]=data;
+                    swap(array,j,j-1);
                 }
             }
         }
@@ -37,9 +35,7 @@ public class BubbleSort {
             flag=false;
             for(j=array.length-1;j>i;j--){
                 if(array[j]<array[j-1]){
-                    int data=array[j];
-                    array[j]=array[j-1];
-                    array[j-1]=data;
+                    swap(array,j,j-1);
                 }
             }
         }
