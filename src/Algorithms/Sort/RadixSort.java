@@ -66,7 +66,7 @@ public class RadixSort {
             /**
              * 对数组元素按照商的余数进行排序
              */
-            for(int k=num.length-1;k>0;k--){
+            for(int k=num.length-1;k>=0;k--){
                 int subKey =(num[k]/rate)%radix;
                 array[left+(--buckets[subKey])]=num[k];
             }
