@@ -57,12 +57,16 @@ public class RadixSort {
                 int subKey=(array[j]/rate)%radix;
                 buckets[subKey]++;
             }
+            int bucket1[]=new int[buckets.length];
+            System.arraycopy(buckets,0,bucket1,0,buckets.length);
             /**
              * 计算桶内元素在数组中应该排序的位置
              */
             for(int j=1;j<radix;j++){
                 buckets[j]=buckets[j]+buckets[j-1];
             }
+            int bucket2[]=new int[buckets.length];
+            System.arraycopy(buckets,0,bucket2,0,buckets.length);
             /**
              * 对数组元素按照商的余数进行排序
              */
@@ -72,11 +76,14 @@ public class RadixSort {
             }
             if(digit>0){
                 int subKey;
-                radixSortMSD(array,left,left+buckets[0]-1,radix,digit-1);
+                for(subKey=0;subKey<radix;subKey++){
+                    radixSortMSD(array,left+bucket2[subKey]-bucket1[subKey],left+bucket2[subKey]-1,radix,digit-1);
+                }
+                /*radixSortMSD(array,left,left+buckets[0]-1,radix,digit-1);
                 for(subKey=0;subKey<radix-1;subKey++){
                     radixSortMSD(array,left+buckets[subKey],left+buckets[subKey+1]-1,radix,digit-1);
                 }
-                radixSortMSD(array,left+buckets[subKey],right,radix,digit-1);
+                radixSortMSD(array,left+buckets[subKey],right,radix,digit-1);*/
             }
         }
     }
