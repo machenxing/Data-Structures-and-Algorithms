@@ -69,7 +69,7 @@ public class ListImpl implements IList {
     }
 
     @Override
-    public int Listlength() {
+    public int ListLength() {
         return this.current;
     }
     /**
@@ -82,7 +82,7 @@ public class ListImpl implements IList {
     }
 
     @Override
-    public boolean Isempty() {
+    public boolean IsEmpty() {
         return this.current==0;
     }
     /**
