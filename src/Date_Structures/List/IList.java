@@ -5,8 +5,8 @@ public interface IList {
     void ListInsert(int i,Object obj)throws Exception;
     void ListDelete(int i)throws Exception;
     void DestroyList();
-    int Listlength();
-    boolean Isempty();
+    int ListLength();
+    boolean IsEmpty();
     <T> T getElem(int i)throws Exception;
     void ClearList();
 }
