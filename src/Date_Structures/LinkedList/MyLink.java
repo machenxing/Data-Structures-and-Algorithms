@@ -302,7 +302,7 @@ public class MyLink {
      * 查询单链表的中间节点
      */
 
-    public Node searchMid(Node head) {
+    public Node searchMiddleNode(Node head) {
 
         Node p1 = head;
         Node p2 = head;
